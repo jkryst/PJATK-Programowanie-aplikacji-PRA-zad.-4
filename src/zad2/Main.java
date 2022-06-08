@@ -6,6 +6,7 @@
 
 package zad2;
 
+import java.beans.PropertyVetoException;
 
 public class Main {
   public static void main(String[] args) {
@@ -14,7 +15,11 @@ public class Main {
     System.out.println(purch);
 
     // --- tu należy dodać odpowiedni kod
-
+    PurchaseChange purchch = new PurchaseChange();
+    PriceLimitator pricelim = new PriceLimitator(1000);
+    
+    purch.addPropertyChangeListener(purchch);
+    purch.addVetoableChangeListener(pricelim);
     // ----------------------------------
 
     try {
